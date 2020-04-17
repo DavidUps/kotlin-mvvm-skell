@@ -1,0 +1,54 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+default_platform(:android)
+platform :android do
+
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+   lane :testUI do
+     gradle(task: "connectedAndroidTest")
+   end
+
+  desc "Submit a new Beta Build to Google Play Beta"
+  lane :beta do
+    increment_version_code(gradle_file_path: "app/build.gradle")
+    versionname = get_version_name(gradle_file_path:"app/build.gradle", ext_constant_name:"versionName")
+    versioncode = get_version_code(gradle_file_path:"app/build.gradle", ext_constant_name:"versionCode")
+    gradle(task: 'assemble', build_type: 'Pro')
+    upload_to_play_store(track: 'beta', apk: 'app/build/outputs/apk/pro/release/app-pro-release.apk')
+    add_git_tag( tag: "PlayStore_v#{versionname}-#{versioncode}-BETA")
+  end
+
+  desc "Submit a new Beta Build to Firebase PRE"
+  lane :firebase_pre do
+    increment_version_code(gradle_file_path: "app/build.gradle")
+    versionname = get_version_name(gradle_file_path:"app/build.gradle", ext_constant_name:"versionName")
+    versioncode = get_version_code(gradle_file_path:"app/build.gradle", ext_constant_name:"versionCode")
+    message = "Se ha publicado en Firebase la versión de PRE para el equipo backend: #{versionname} - #{versioncode}. Para descargarla comprueba tu bandeja de entrada."
+
+    gradle(task: "test")
+    gradle(task: "connectedAndroidTest")
+    gradle(task: "assemble", build_type: "Pre")
+    firebase_app_distribution(
+      app: "1:370593141663:android:83824edc02a779ff09a3aa",
+      groups: "dev",
+      release_notes: "Lots of amazing new features to test out!",
+    )
+    add_git_tag(tag: "Firebase_v#{versionname}-#{versioncode}-PRE")
+  end
+
+end

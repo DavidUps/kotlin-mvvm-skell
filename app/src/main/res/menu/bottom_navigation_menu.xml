@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/btnAccesibility"
+        android:title="Comunidad"/>
+
+    <item
+        android:id="@+id/btnEvents"
+        android:title="Mapa"/>
+
+    <item
+        android:id="@+id/btnNews"
+        android:title="Noticias"/>
+
+    <item
+        android:id="@+id/btnSpecialist"
+        android:title="Mensajes" />
+
+    <item
+        android:id="@+id/btnProfile"
+        android:title="Perfil" />
+</menu>
