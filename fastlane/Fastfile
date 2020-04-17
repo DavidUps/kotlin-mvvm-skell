@@ -44,7 +44,7 @@ platform :android do
     gradle(task: "connectedAndroidTest")
     gradle(task: "assemble", build_type: "Pre")
     firebase_app_distribution(
-      app: "1:370593141663:android:83824edc02a779ff09a3aa",
+      app: "",
       groups: "dev",
       release_notes: "Lots of amazing new features to test out!",
     )
