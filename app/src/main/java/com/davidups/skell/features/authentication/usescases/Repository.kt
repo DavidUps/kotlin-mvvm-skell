@@ -14,7 +14,6 @@ interface Repository {
 
     class Network(
         private val networkHandler: NetworkHandler,
-        private val service: Service,
         private val ioDispatcher: CoroutineDispatcher
     ) : Repository {
 

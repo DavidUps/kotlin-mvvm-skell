@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import com.davidups.skell.BuildConfig
 import com.davidups.skell.core.platform.ContextHandler
 import com.davidups.skell.core.platform.NetworkHandler
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
@@ -27,6 +29,10 @@ val networkModule = module {
         Retrofit.Builder()
             .client(createClient())
             .addConverterFactory(GsonConverterFactory.create())
+    }
+
+    factory {
+        Dispatchers.IO
     }
 }
 val applicationModule = module(override = true) {
