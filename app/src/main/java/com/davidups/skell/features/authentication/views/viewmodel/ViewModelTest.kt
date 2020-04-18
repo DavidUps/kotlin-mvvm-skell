@@ -7,16 +7,4 @@ import com.davidups.skell.features.authentication.usescases.UseCaseExample
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class ViewModelTest(private val useCaseExample: UseCaseExample) : BaseViewModel() {
-
-    var holi: MutableLiveData<String> = MutableLiveData()
-
-    fun holi() =
-        viewModelScope.launch {
-            useCaseExample(UseCase.None())
-
-                .collect {
-
-                }
-        }
-}
+class ViewModelTest(private val useCaseExample: UseCaseExample) : BaseViewModel() {}

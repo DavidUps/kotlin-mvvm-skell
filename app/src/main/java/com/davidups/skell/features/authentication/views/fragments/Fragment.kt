@@ -11,13 +11,7 @@ import org.koin.android.ext.android.inject
 class Fragment: BaseFragment() {
     override fun layoutId() = R.layout.fragment_start
 
-    private val viewModelTest: ViewModelTest by inject()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewModelTest.holi()
-
-        Log.i("hoa", "la")
     }
 }
