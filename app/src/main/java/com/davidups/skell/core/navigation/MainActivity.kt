@@ -7,10 +7,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.davidups.skell.R
-import com.davidups.skell.core.functional.DialogCallback
 import kotlinx.android.synthetic.main.navigation_activity.*
 
-class MainActivity : AppCompatActivity(), PopUpDelegator {
+class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,18 +72,5 @@ class MainActivity : AppCompatActivity(), PopUpDelegator {
 
     public fun toolbarText(text: String) {
         toolbar.title = text
-    }
-
-
-    override fun showErrorWithRetry(
-        title: String,
-        message: String,
-        positiveText: String,
-        negativeText: String,
-        callback: DialogCallback
-    ) {
-        // Implementar aqui el dialog con el que quereis mostrar los errores y en función
-        // del boton pulsado llamar a callback.onAccept() o callback.onDecline() que lo que hace es
-        // delegar al fragment
     }
 }

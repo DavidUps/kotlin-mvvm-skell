@@ -9,9 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.davidups.skell.R
-import com.davidups.skell.core.functional.DialogCallback
 import com.davidups.skell.core.navigation.MainActivity
-import com.davidups.skell.core.navigation.PopUpDelegator
 import kotlinx.android.synthetic.main.navigation_activity.*
 import org.koin.android.ext.android.inject
 
