@@ -1,6 +1,4 @@
-package com.davidups.starwars.core.extensions
-
-import kotlin.random.Random
+package com.davidups.skell.core.extensions
 
 fun String.Companion.empty() = ""
 

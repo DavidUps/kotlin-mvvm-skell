@@ -1,15 +1,14 @@
 package com.davidups.skell.features.authentication.views.fragments
 
 import android.os.Bundle
-import android.util.Log
 import com.davidups.skell.R
 import com.davidups.skell.core.platform.BaseFragment
-import com.davidups.skell.features.authentication.usescases.Repository
-import com.davidups.skell.features.authentication.views.viewmodel.ViewModelTest
-import org.koin.android.ext.android.inject
+import com.davidups.skell.databinding.FragmentStartBinding
+import com.davidups.starwars.core.platform.viewBinding.viewBinding
 
-class Fragment: BaseFragment() {
-    override fun layoutId() = R.layout.fragment_start
+class Fragment: BaseFragment(R.layout.fragment_start) {
+
+    val binding by viewBinding(FragmentStartBinding::bind)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

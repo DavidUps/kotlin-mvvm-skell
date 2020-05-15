@@ -13,16 +13,12 @@ import com.davidups.skell.core.navigation.MainActivity
 import kotlinx.android.synthetic.main.navigation_activity.*
 import org.koin.android.ext.android.inject
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment(layout: Int) : Fragment() {
 
-    private var popUpDelegator: PopUpDelegator? = null
-
-    abstract fun layoutId(): Int
-
-    private val viewModelFactory: ViewModelProvider.Factory by inject()
+    val layouID = layout
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
-        inflater.inflate(layoutId(), container, false)
+        inflater.inflate(layouID, container, false)
 
     internal fun showProgress() = progressStatus(View.VISIBLE)
 
@@ -35,37 +31,10 @@ abstract class BaseFragment: Fragment() {
             }
         }
 
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
-        if (activity is PopUpDelegator) {
-            this.popUpDelegator = activity
+    internal fun showSpinner(show: Boolean) {
+        when (show) {
+            true -> showProgress()
+            false -> hideProgress()
         }
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is PopUpDelegator) {
-            this.popUpDelegator = context
-        }
-    }
-
-    internal fun showErrorWithRetry(title: String, message: String, positiveText: String,
-                                    negativeText: String, callback: DialogCallback
-    ) {
-        popUpDelegator?.showErrorWithRetry(title, message, positiveText, negativeText, callback)
-    }
-
-    internal fun showError(errorCode: Int, errorMessage: String?, dialogCallback: DialogCallback) {
-        val genericErrorTitle = getString(R.string.generic_error_title)
-        val genericErrorMessage = getString(R.string.generic_error_body)
-        showErrorWithRetry(
-            genericErrorTitle,
-            genericErrorMessage,
-            getString(R.string.Retry),
-            getString(R.string.Cancel),
-            object : DialogCallback {
-                override fun onDecline() = dialogCallback.onDecline()
-                override fun onAccept() = dialogCallback.onAccept()
-            })
     }
 }

@@ -1,4 +1,4 @@
-package com.davidups.starwars.core.extensions
+package com.davidups.skell.core.extensions
 
 import android.content.Context
 import android.net.ConnectivityManager

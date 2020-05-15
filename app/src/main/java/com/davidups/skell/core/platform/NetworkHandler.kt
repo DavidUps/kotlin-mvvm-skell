@@ -1,7 +1,7 @@
 package com.davidups.skell.core.platform
 
 import android.content.Context
-import com.davidups.starwars.core.extensions.networkInfo
+import com.davidups.skell.core.extensions.networkInfo
 
 
 class NetworkHandler

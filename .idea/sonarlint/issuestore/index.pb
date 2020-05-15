@@ -1,8 +1,6 @@
 
 j
 :app/src/main/java/com/davidups/skell/AndroidApplication.kt,1/9/19228f70936df7b3357c78090aa04011e2772be4
-n
->app/src/main/java/com/davidups/skell/core/functional/Either.kt,a/c/acd04c1169c2e92cbd4e9635d00dbcaffea408c2
 g
 7app/src/main/java/com/davidups/skell/core/di/Modules.kt,5/1/519904851a315b1ba4a4149ef170f0853f68124c
 @
@@ -39,3 +37,17 @@ _
 /app/src/main/res/navigation/main_navigation.xml,e/c/ec3b8410bb370c47ba0f9e7414a62eba886eefae
 l
 <app/src/main/java/com/davidups/skell/core/di/Repositories.kt,0/9/09b489896271573a0d98feb74737e7182a02d0f9
+ˆ
+Xapp/src/main/java/com/davidups/skell/core/platform/viewBinding/internal/ActivityUtils.kt,4/7/47be5a954baa649deaacdcec9bf4c4c8a5aaa59e
+Œ
+\app/src/main/java/com/davidups/skell/core/platform/viewBinding/internal/DefaultViewBinder.kt,f/2/f2f43b1e696f55939f3e54dbd2e8cf8233c9995d
+€
+Papp/src/main/java/com/davidups/skell/core/platform/viewBinding/internal/Utils.kt,1/e/1e38731d633a0c87797288f7eaa60258892930ed
+n
+>app/src/main/java/com/davidups/skell/core/exception/Failure.kt,6/e/6eff860ff7ea7177296b1d4fb20a0eca2f3978fd
+ˆ
+Xapp/src/main/java/com/davidups/skell/features/authentication/usescases/UseCaseExample.kt,3/b/3bfc5042bf13dea31a7cd53893e47a5d6bf0af74
+m
+=app/src/main/java/com/davidups/skell/core/functional/State.kt,0/2/02bb5aad75270cc2e428890112988277e9c3e695
+r
+Bapp/src/main/java/com/davidups/skell/core/platform/BaseFragment.kt,5/7/576c271fd4e28e8282936f3badac7aee58f54d99
