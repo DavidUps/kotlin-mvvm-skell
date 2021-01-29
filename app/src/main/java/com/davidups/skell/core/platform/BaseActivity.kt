@@ -1,4 +1,4 @@
-package com.davidups.starwars.core.platform
+package com.davidups.skell.core.platform
 
 import androidx.appcompat.app.AppCompatActivity
 

@@ -1,76 +1,53 @@
 package com.davidups.skell.core.navigation
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.ActivityNavigator
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
 import com.davidups.skell.R
+import com.davidups.skell.databinding.NavigationActivityBinding
 import kotlinx.android.synthetic.main.navigation_activity.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: NavigationActivityBinding
+
+    private lateinit var navController: NavController
     private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.navigation_activity)
+        binding = NavigationActivityBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        initView()
+        initListeners()
+    }
+
+    private fun initView() {
         setSupportActionBar(toolbar)
-        val navController = findNavController(R.id.fragment)
+        supportActionBar?.elevation = 0f
+        navController = findNavController(R.id.fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        val appBarConfiguration = AppBarConfiguration(
+            setOf(
 
-        toolbar.setNavigationOnClickListener {
+            )
+        )
+        binding.bottomNavigation.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        ActivityNavigator.applyPopAnimationsToPendingTransition(this)
+    }
+
+    private fun initListeners() {
+        binding.toolbar.setNavigationOnClickListener {
             onBackPressed()
         }
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-
-            toolbar.title = when (destination.id) {
-                else -> ""
-            }
-            toolbar.visibility = when (destination.id) {
-                else -> View.VISIBLE
-            }
-
-            bottom_navigation.visibility = when (destination.id) {
-                else -> View.VISIBLE
-            }
-
-            toolbar.visibility = when (destination.id) {
-                else -> View.VISIBLE
-            }
-
-            //Controlamos que al cambiar de fragment no siga nuestro progress activo
-            if (progress.visibility == View.VISIBLE) progress.visibility = View.GONE
-
-        }
-
-        bottom_navigation.setOnNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.btnAccesibility -> {
-                    true
-                }
-                R.id.btnEvents -> {
-                    true
-                }
-                R.id.btnNews -> {
-                    true
-                }
-
-                R.id.btnSpecialist -> {
-                    true
-                }
-                R.id.btnProfile -> {
-                    true
-                }
-                else -> true
-            }
-        }
-    }
-
-    public fun toolbarText(text: String) {
-        toolbar.title = text
+        navController.addOnDestinationChangedListener { _, destination, _ -> }
     }
 }

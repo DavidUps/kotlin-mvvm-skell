@@ -1,6 +1,5 @@
 package com.davidups.starwars.core.platform.viewBinding
 
-import androidx.viewbinding.ViewBinding
 import android.os.Handler
 import android.os.Looper
 import android.view.View
@@ -8,6 +7,7 @@ import androidx.annotation.MainThread
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.viewbinding.ViewBinding
 import com.davidups.skell.core.platform.viewBinding.internal.DefaultViewBinder
 import com.davidups.skell.core.platform.viewBinding.internal.checkIsMainThread
 import kotlin.properties.ReadOnlyProperty

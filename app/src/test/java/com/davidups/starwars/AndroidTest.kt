@@ -2,7 +2,7 @@ package com.davidups.starwars
 
 import android.app.Application
 import android.content.Context
-import com.davidups.starwars.core.platform.BaseActivity
+import com.davidups.skell.core.platform.BaseActivity
 import org.junit.Rule
 import org.junit.runner.RunWith
 import org.mockito.Mockito.mock

@@ -1,3 +1,3 @@
-package com.davidups.starwars.core.extensions
+package com.davidups.skell.core.extensions
 
 fun Int.Companion.empty() = 0

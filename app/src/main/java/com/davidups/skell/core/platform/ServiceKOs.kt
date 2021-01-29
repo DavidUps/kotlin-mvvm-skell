@@ -1,4 +1,4 @@
-package com.davidups.starwars.core.platform
+package com.davidups.skell.core.platform
 
 class ServiceKOs {
     companion object {
